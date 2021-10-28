@@ -7,11 +7,8 @@ module Mutations
     # return type from the mutation
     type Types::LinkType
 
-    def resolve(description: nil, url: nil)
-      Link.create!(
-        description: description,
-        url: url,
-      )
+    def resolve(**args)
+      Link.create(args)
     end
   end
 end
