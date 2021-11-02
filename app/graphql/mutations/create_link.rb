@@ -8,7 +8,7 @@ module Mutations
     type Types::LinkType
 
     def resolve(**args)
-      Link.create(args)
+      Operations::LinkOperation::Create.new.call(args).value
     end
   end
 end

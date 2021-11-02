@@ -1,20 +1,15 @@
 module Operations
-  module Link
+  module LinkOperation
     class Create < Pathway::Operation
-
-      # context :current_user
-
-      contract do
-        # option :current_user
-    
+      contract do    
         params do
           required(:url).value(:string)
           required(:description).value(:string)
         end
       
-        # rule(:url) do
-        #   key.failure(:invalid)
-        # end
+        rule(:url) do
+          key.failure(:invalid) unless value =~ Link::URL_REGX
+        end
       end
 
       process do
@@ -22,8 +17,7 @@ module Operations
         set :create_link
       end
 
-      def create_link(params, **)
-        debugger
+      def create_link(params)
         Link.create(params[:input])
       end
     end
