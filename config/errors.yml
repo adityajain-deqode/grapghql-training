@@ -1,0 +1,4 @@
+en:
+  dry_validation:
+    errors:
+      invalid: 'must be in the past'
