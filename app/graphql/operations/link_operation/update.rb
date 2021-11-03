@@ -8,7 +8,7 @@ module Operations
           required(:url).value(:string)
           required(:description).value(:string)
         end
-      
+
         rule(:url) do
           key.failure(:invalid) unless value =~ Link::URL_REGX
         end
@@ -19,12 +19,12 @@ module Operations
         set :update_link
       end
 
+      private
+
       def update_link(params, **)
-        if link.update(params[:input])
-          link
-        else
-          link.errors
-        end
+        return link if link.update(params[:input])
+
+        link.errors
       end
     end
   end

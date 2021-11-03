@@ -4,11 +4,9 @@ module Operations
       context :link
 
       def call
-        if link.destroy
-          link
-        else
-          link.errors
-        end
+        return link if link.destroy
+
+        link.errors
       end
     end
   end
