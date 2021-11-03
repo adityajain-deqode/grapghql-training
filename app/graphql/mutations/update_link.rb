@@ -10,9 +10,7 @@ module Mutations
     type Types::LinkType
 
     def resolve(id:, **args)
-      Link.find(id).tap do |link|
-        link.update(args)
-      end
+      Operations::LinkOperation::Update.new(link: Link.find(id)).call(args).value
     end
   end
 end
