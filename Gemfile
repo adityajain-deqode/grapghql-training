@@ -41,3 +41,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'graphql', '~> 1.12.17'
 gem 'pathway'
 gem 'dry-validation', '1.5.6'
+gem 'sequel-rails'
