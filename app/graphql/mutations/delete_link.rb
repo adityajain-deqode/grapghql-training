@@ -7,7 +7,7 @@ module Mutations
     type Types::LinkType
 
     def resolve(id:)
-      Operations::LinkOperation::Delete.new(link: Link.find(id)).call
+      Operations::LinkOperation::Delete.new(link: Link[id]).call
     rescue ActiveRecord::RecordNotFound
       GraphQL::ExecutionError.new("Record not found")
     end
